@@ -95,7 +95,7 @@ namespace CinemaBookingData
             {
                 var allBookings = GetAllBookings().ToList();
                 allBookings.Remove(allBookings.FirstOrDefault(i => i.Id == bookingId));
-                System.IO.File.WriteAllText(System.IO.Path.Combine($@"{path}/Booking.json"), 
+                System.IO.File.WriteAllText(System.IO.Path.Combine($@"{path}/Booking.json"),
                     JsonConvert.SerializeObject(allBookings), System.Text.Encoding.UTF8);
                 return true;
             }
@@ -107,16 +107,25 @@ namespace CinemaBookingData
 
         public int AddBooking(Booking booking)
         {
-            try {
+            try
+            {
                 var allBookings = GetAllBookings().ToList();
                 var nextId = allBookings.Count == 0 ? 1 : (allBookings.Max(x => x.Id)) + 1;
                 booking.Id = nextId;
                 allBookings.Add(booking);
                 System.IO.File.WriteAllText(System.IO.Path.Combine($@"{path}/Booking.json"), JsonConvert.SerializeObject(allBookings), System.Text.Encoding.UTF8);
                 return nextId;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 return 0;
             }
+        }
+
+        public bool IsBookingBusy(Booking booking)
+        {
+            var exists = GetAllBookings().FirstOrDefault(x => x.PlayBillId == booking.PlayBillId && x.SeatId == booking.SeatId);
+            return exists != null;
         }
 
         private IEnumerable<T> GetList<T>(string fileName)

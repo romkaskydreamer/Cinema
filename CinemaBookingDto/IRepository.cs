@@ -21,7 +21,7 @@ namespace CinemaBookingDto
 
         int AddBooking(Booking booking);
         bool RemoveBooking(int bookingId);
-
+        bool IsBookingBusy(Booking booking);
         //void Delete(T entity);
         //T FindById(int Id);
     }

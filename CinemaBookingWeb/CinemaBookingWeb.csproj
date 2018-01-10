@@ -172,24 +172,20 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Dto\Booking.cs" />
-    <Compile Include="Dto\Hall.cs" />
-    <Compile Include="Dto\Movie.cs" />
-    <Compile Include="Dto\PlayBill.cs" />
-    <Compile Include="Dto\PriceCategory.cs" />
-    <Compile Include="Dto\Seat.cs" />
+    <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Poster.cs" />
     <Compile Include="Models\SeatDdl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookingService.cs" />
     <Compile Include="Services\PlayBillService.cs" />
     <Compile Include="ViewModel\BookingFormViewModel.cs" />
+    <Compile Include="ViewModel\BookingsListViewModel.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\PlayBillViewModel.cs" />
+    <Compile Include="ViewModel\ResultViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\img\babydriver.jpg" />
@@ -233,6 +229,7 @@
     <Content Include="Views\Home\BookingForm.cshtml" />
     <Content Include="Views\Home\BookingConfirm.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Shared\_Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

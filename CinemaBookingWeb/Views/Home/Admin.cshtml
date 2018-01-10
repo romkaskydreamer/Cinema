@@ -1,7 +1,62 @@
-﻿@{
+﻿@model CinemaBookingWeb.ViewModel.BookingsListViewModel
+@{
     ViewBag.Title = "Films";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>Admin page - to be implemented</h3>
 
 <p>Here we will see orders.</p>
+@{
+    <table class="table">
+        <tr>
+            <th>
+                Order date
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Movie
+            </th>
+            <th>
+                Hall
+            </th>
+            <th>
+                Seat
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model.Bookings)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieName)
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Hall)
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.SeatSummary)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "Home", new { id = item.Id }, "")
+            </td>
+        </tr>
+        }
+
+    </table>
+
+}

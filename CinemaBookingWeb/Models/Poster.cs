@@ -25,9 +25,4 @@ namespace CinemaBookingWeb.Models
             BasePrice = playbill.BasePrice;
         }
     }
-
-    public class GroupedPoster
-    {
-        public System.Collections.Generic.List<Poster> Films { get; set; }
-    }
 }

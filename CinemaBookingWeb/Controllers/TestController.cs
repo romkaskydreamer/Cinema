@@ -37,7 +37,7 @@ namespace CinemaBookingWeb.Controllers
             movies.Add(new Movie { Id = 2, Name = "James Bond", Description = "sdakjfsjkdf hkjasdhfgjkasjk dgjkhadgjk", Img = "~/Content/img/skyfall.jpg" });
             movies.Add(new Movie { Id = 3, Name = "Back To The Future", Description = "sdakjfsjkdf hkjasdhfgjkasjk dgjkhadgjk sdf", Img = "~/Content/img/btf.jpg" });
             movies.Add(new Movie { Id = 4, Name = "Baby Driver", Description = "sdakjfsjkdf hkjasdhfgjkasjk dgjkhadgjk sdf", Img = "~/Content/img/babydriver.jpg" });
-            movies.Add(new Movie { Id = 5, Name = "Star Wars", Description = "sdakjfsjkdf hkjasdhfgjkasjk dgjkhadgjk qefs", Img = "~/Content/img/looper.jpg" });
+            movies.Add(new Movie { Id = 5, Name = "Looper", Description = "sdakjfsjkdf hkjasdhfgjkasjk dgjkhadgjk qefs", Img = "~/Content/img/looper.jpg" });
             movies.Add(new Movie { Id = 6, Name = "Spiderman", Description = "sdakjfsjkdf hkjasdhfgjkasjk dgjkhadgjk qwqw", Img = "~/Content/img/spider.jpg" });
 
             var priceCtaegoriesd = new List<PriceCategory>();
@@ -87,18 +87,18 @@ namespace CinemaBookingWeb.Controllers
             seats.Add(new Seat { Id = 36, HallId = 3, PriceCategoryId = 3, RowNum = 3, SeatNum = 12 });
 
             var playbill = new List<PlayBill>();
-            playbill.Add(new PlayBill { Id = 1, HallId = 1, MovieId = 1, BasePrice = 55, DateMovie = new DateTime(2018, 2, 15, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 2, HallId = 2, MovieId = 1, BasePrice = 55, DateMovie = new DateTime(2018, 2, 15, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 3, HallId = 3, MovieId = 1, BasePrice = 55, DateMovie = new DateTime(2018, 2, 15, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 4, HallId = 1, MovieId = 2, BasePrice = 155, DateMovie = new DateTime(2018, 2, 16, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 5, HallId = 2, MovieId = 2, BasePrice = 200, DateMovie = new DateTime(2018, 2, 16, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 6, HallId = 3, MovieId = 2, BasePrice = 100, DateMovie = new DateTime(2018, 2, 16, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 7, HallId = 1, MovieId = 3, BasePrice = 12, DateMovie = new DateTime(2018, 2, 17, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 8, HallId = 3, MovieId = 3, BasePrice = 123, DateMovie = new DateTime(2018, 2, 18, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 9, HallId = 1, MovieId = 4, BasePrice = 234, DateMovie = new DateTime(2018, 2, 15, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 10, HallId = 1, MovieId = 5, BasePrice = 456, DateMovie = new DateTime(2018, 2, 15, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 11, HallId = 2, MovieId = 6, BasePrice = 678, DateMovie = new DateTime(2018, 2, 15, 1, 2, 0) });
-            playbill.Add(new PlayBill { Id = 12, HallId = 3, MovieId = 6, BasePrice = 89, DateMovie = new DateTime(2018, 2, 15, 1, 2, 0) });
+            playbill.Add(new PlayBill { Id = 1, HallId = 1, MovieId = 1, BasePrice = 55, DateMovie = new DateTime(2018, 2, 15, 12, 2, 0) });
+            playbill.Add(new PlayBill { Id = 2, HallId = 2, MovieId = 1, BasePrice = 55, DateMovie = new DateTime(2018, 2, 15, 12, 2, 0) });
+            playbill.Add(new PlayBill { Id = 3, HallId = 3, MovieId = 1, BasePrice = 55, DateMovie = new DateTime(2018, 2, 15, 12, 2, 0) });
+            playbill.Add(new PlayBill { Id = 4, HallId = 1, MovieId = 2, BasePrice = 155, DateMovie = new DateTime(2018, 2, 16, 13, 2, 0) });
+            playbill.Add(new PlayBill { Id = 5, HallId = 2, MovieId = 2, BasePrice = 200, DateMovie = new DateTime(2018, 2, 16, 13, 2, 0) });
+            playbill.Add(new PlayBill { Id = 6, HallId = 3, MovieId = 2, BasePrice = 100, DateMovie = new DateTime(2018, 2, 16, 13, 2, 0) });
+            playbill.Add(new PlayBill { Id = 7, HallId = 1, MovieId = 3, BasePrice = 12, DateMovie = new DateTime(2018, 2, 17, 14, 2, 0) });
+            playbill.Add(new PlayBill { Id = 8, HallId = 3, MovieId = 3, BasePrice = 123, DateMovie = new DateTime(2018, 2, 18, 15, 2, 0) });
+            playbill.Add(new PlayBill { Id = 9, HallId = 1, MovieId = 4, BasePrice = 234, DateMovie = new DateTime(2018, 2, 15, 16, 2, 0) });
+            playbill.Add(new PlayBill { Id = 10, HallId = 1, MovieId = 5, BasePrice = 456, DateMovie = new DateTime(2018, 2, 15, 17, 2, 0) });
+            playbill.Add(new PlayBill { Id = 11, HallId = 2, MovieId = 6, BasePrice = 678, DateMovie = new DateTime(2018, 2, 15, 18, 2, 0) });
+            playbill.Add(new PlayBill { Id = 12, HallId = 3, MovieId = 6, BasePrice = 89, DateMovie = new DateTime(2018, 2, 15, 19, 2, 0) });
 
             var targetDir = "/App_Data/Data";
             if (!Directory.Exists(HostingEnvironment.MapPath(targetDir)))
