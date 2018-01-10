@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Initializer";
+    ViewBag.Message = "By pressing this link your json files will be filled with some test data about films, prices etc";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@Html.ActionLink("Re-initialize json files with data", "Go", "Test")

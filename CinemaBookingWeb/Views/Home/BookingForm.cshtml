@@ -1,0 +1,94 @@
+﻿@model CinemaBookingWeb.ViewModel.BookingFormViewModel
+@{
+    /**/
+    string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+    ViewBag.Title = "Booking ticket information";
+    ViewBag.Message = "";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<body>
+    @using (Html.BeginForm("BookingConfirm", "Home", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Poster.Id)
+
+        <a href='@Url.Action("Movie", "Home", new { id = Model.Poster.MovieId })'>
+            <img height="300" width="200" src='@Url.Content(Model.Poster.Movie.Img)' />
+        </a>
+
+        <div>
+            @Html.Label("You want to book  ticket for the film:")
+            @Html.DisplayFor(modelItem => Model.Poster.Movie.Name)
+        </div>
+        <div>
+            @Html.Label("When:")
+            @Html.DisplayFor(modelItem => Model.Poster.DateMovie)
+        </div>
+        <div>
+            @Html.LabelForModel("Hall:")
+            <span style="background-color:@Model.Poster.Hall.Name">@Html.DisplayFor(modelItem => Model.Poster.Hall.Name)</span>
+        </div>
+
+        @Html.LabelFor(m => m.SeatId)
+        @Html.DropDownListFor(m => m.SeatId, new SelectList(Model.FreeSeats, "Id", "Summary"), "", new { @class = "form-control" })
+        <span style="color:red">@Html.ValidationMessageFor(m => m.SeatId)</span>
+        <span hidden id="seatError" style="color:red">Please choose seat number</span>
+        <div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ClientName)
+                <input type="text"
+                       class="form-control"
+                       name="ClientName"
+                       id="ClientName"
+                       placeholder="E.g. John Smith"
+                       minlength="2"
+                       required>
+            </div>
+
+        </div>
+        <div>
+            @*@Html.TextBoxFor(m => m.ClientName)*@
+            @Html.ValidationMessageFor(m => m.ClientName)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ClientEmail)
+        </div>
+        <div>
+            @*@Html.TextBoxFor(m => m.ClientEmail)*@
+            <input type="email"
+                   class="form-control"
+                   name="ClientEmail"
+                   id="ClientEmail"
+                   placeholder="example@domain.com"
+                   pattern="@pattern"
+                   data-error="Sorry, that email address is invalid"
+                   required>
+            @*@Html.ValidationMessageFor(m => m.ClientEmail)*@
+        </div>
+        <input class="btn alert-success" type="submit" value="Confirm booking" style="" />
+    }
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#SeatId').change(function () {
+                debugger;
+                $("#seatError").hide();
+            }
+
+            );
+
+            $("input[type='submit']").click(function (e) {
+                var el = $("select");
+                if (el.val() === "-1" || el.val() == "") {
+                    e.preventDefault();
+                    $("#seatError").show();
+                } else {
+                    $("#seatError").hide();
+                }
+            });
+            }
+        )
+
+    </script>
+</body>
