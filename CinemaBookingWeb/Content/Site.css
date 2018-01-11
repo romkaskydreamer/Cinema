@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 250px;
 }
+
+.redSpan {
+    color:red; 
+}

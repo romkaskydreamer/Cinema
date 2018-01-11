@@ -170,14 +170,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Poster.cs" />
     <Compile Include="Models\SeatDdl.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookingService.cs" />
     <Compile Include="Services\PlayBillService.cs" />
@@ -222,14 +225,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Admin.cshtml" />
-    <Content Include="Views\Home\Initializer.cshtml" />
+    <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Admin\Initializer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Movie.cshtml" />
-    <Content Include="Views\Home\BookingForm.cshtml" />
-    <Content Include="Views\Home\BookingConfirm.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Movie\Movie.cshtml" />
+    <Content Include="Views\Booking\BookingForm.cshtml" />
     <Content Include="Views\Shared\_Result.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,9 +250,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CinemaBookingData\CinemaBookingData.csproj">
+    <ProjectReference Include="..\CinemaBookingRepo\CinemaBookingRepo.csproj">
       <Project>{72d5e4ce-4e73-4492-a4b0-31f44e086685}</Project>
-      <Name>CinemaBookingData</Name>
+      <Name>CinemaBookingRepo</Name>
     </ProjectReference>
     <ProjectReference Include="..\CinemaBookingDto\CinemaBookingDto.csproj">
       <Project>{a2f27b37-1858-4935-b127-3af01b0218a4}</Project>

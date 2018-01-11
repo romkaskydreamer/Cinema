@@ -1,0 +1,36 @@
+﻿@model CinemaBookingWeb.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@using (Html.BeginForm())
+{
+    <span class="redSpan">
+        @Html.ValidationSummary(true, "Login failed. Check your login details.")
+    </span>
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.UserName)
+                <span class="redSpan">@Html.ValidationMessageFor(u => u.UserName)</span>
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Password)
+                <span class="redSpan">@Html.ValidationMessageFor(u => u.Password)</span>
+            </div>
+            <div class="editor-label">
+                @Html.CheckBoxFor(u => u.RememberMe)
+                @Html.LabelFor(u => u.RememberMe)
+            </div>
+            <input type="submit" value="Log In" class="btn alert-danger" />
+        </fieldset>
+    </div>
+}

@@ -1,6 +1,5 @@
 ﻿@model CinemaBookingWeb.ViewModel.BookingFormViewModel
 @{
-    /**/
     string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
     ViewBag.Title = "Booking ticket information";
     ViewBag.Message = "";
@@ -8,11 +7,13 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 <body>
-    @using (Html.BeginForm("BookingConfirm", "Home", FormMethod.Post))
+    @Html.ActionLink("Back to Films List", "Index", "Home", "", new { @class = "btn alert-info" })
+    <hr>
+    @using (Html.BeginForm("BookingConfirm", "Booking", FormMethod.Post))
     {
         @Html.HiddenFor(m => m.Poster.Id)
 
-        <a href='@Url.Action("Movie", "Home", new { id = Model.Poster.MovieId })'>
+        <a href='@Url.Action("Movie", "Movie", new { id = Model.Poster.MovieId })'>
             <img height="300" width="200" src='@Url.Content(Model.Poster.Movie.Img)' />
         </a>
 
@@ -66,14 +67,12 @@
             @*@Html.ValidationMessageFor(m => m.ClientEmail)*@
         </div>
         <br>
-        <input class="btn alert-success" type="submit" value="Confirm booking" style="" />
+        <input class="btn alert-danger" type="submit" value="Confirm booking" style="" />
     }
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">
         $(document).ready(function () {
             $('#SeatId').change(function () {
-                debugger;
                 $("#seatError").hide();
             }
 
@@ -88,7 +87,7 @@
                     $("#seatError").hide();
                 }
             });
-            }
+        }
         )
 
     </script>

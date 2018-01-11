@@ -1,0 +1,17 @@
+﻿@model CinemaBookingWeb.ViewModel.MovieViewModel
+@{
+    ViewBag.Title = "Movie information";
+    ViewBag.Message = "";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@Html.ActionLink("Back to Films List", "Index", "Home", "", new { @class = "btn alert-info" })
+<hr>
+Here you can see short movie description
+<div>
+    <img height="300" width="200" src='@Url.Content(Model.Img)' />
+</div>
+<div>
+    <h4>@Html.Label("Description")</h4>
+    <h5>@Model.Description</h5>
+</div>

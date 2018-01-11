@@ -1,17 +1,23 @@
-﻿
+﻿@model CinemaBookingWeb.ViewModel.ResultViewModel
 @{
-    Layout = null;
+    ViewBag.Title = "Result";
+    ViewBag.Message = "";
 }
 
 <!DOCTYPE html>
-
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_Error</title>
+    <title></title>
 </head>
 <body>
-    <div> 
+    <div>
+        @Model.Message
     </div>
+    <br />
+    @Html.ActionLink("Back to Films List", "Index", "Home", "", new {@class = "btn alert-info" })
+    <button onclick="window.history.back()" class="btn alert-danger">Back to booking request</button>
 </body>
 </html>

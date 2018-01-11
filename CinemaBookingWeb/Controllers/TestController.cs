@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.Hosting;
 using System.Web.Mvc;
 using CinemaBookingDto;
@@ -131,7 +129,5 @@ namespace CinemaBookingWeb.Controllers
             //System.IO.File.WriteAllText(bookPath, bookJson, Encoding.UTF8);
             return null;
         }
-
-
     }
 }

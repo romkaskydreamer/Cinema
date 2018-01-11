@@ -4,52 +4,53 @@ using CinemaBookingDto;
 using CinemaBookingDto.Models;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Reflection;
 
 namespace CinemaBookingData
 {
     public class JsonRepository : IRepository
     {
-        private readonly string path = @"D:\Projects\Cinema\CinemaBookingWeb";
+        private readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine((new Uri(Assembly.GetExecutingAssembly().CodeBase)).AbsolutePath, @"..\..\"));
 
         public Booking FindBookingById(int id)
         {
             var objs = GetAllBookings();
-            var obj = objs.ToList().FirstOrDefault(x => x.Id == id);
+            var obj = objs.FirstOrDefault(x => x.Id == id);
             return obj;
         }
 
         public Hall FindHallById(int id)
         {
             var objs = GetHalls();
-            var obj = objs.ToList().FirstOrDefault(x => x.Id == id);
+            var obj = objs.FirstOrDefault(x => x.Id == id);
             return obj;
         }
 
         public Movie FindMovieById(int id)
         {
             var objs = GetMovies();
-            var obj = objs.ToList().FirstOrDefault(x => x.Id == id);
+            var obj = objs.FirstOrDefault(x => x.Id == id);
             return obj;
         }
 
         public PlayBill FindPlayBillById(int id)
         {
             var objs = GetPlayBill();
-            var obj = objs.ToList().FirstOrDefault(x => x.Id == id);
+            var obj = objs.FirstOrDefault(x => x.Id == id);
             return obj;
         }
 
         public PriceCategory FindPriceCategoryById(int id)
         {
             var objs = GetPriceCategories();
-            var obj = objs.ToList().FirstOrDefault(x => x.Id == id);
+            var obj = objs.FirstOrDefault(x => x.Id == id);
             return obj;
         }
 
         public Seat FindSeatById(int id)
         {
             var objs = GetSeats();
-            var obj = objs.ToList().FirstOrDefault(x => x.Id == id);
+            var obj = objs.FirstOrDefault(x => x.Id == id);
             return obj;
         }
 
