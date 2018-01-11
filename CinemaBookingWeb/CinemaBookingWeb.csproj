@@ -168,6 +168,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RepoConfigFactory.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookingService.cs" />
+    <Compile Include="Services\MovieService.cs" />
     <Compile Include="Services\PlayBillService.cs" />
     <Compile Include="ViewModel\BookingFormViewModel.cs" />
     <Compile Include="ViewModel\BookingsListViewModel.cs" />

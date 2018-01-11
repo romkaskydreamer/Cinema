@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaBookingRepo", "Cinema
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaBookingDto", "CinemaBookingDto\CinemaBookingDto.csproj", "{A2F27B37-1858-4935-B127-3AF01B0218A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaBookingWebTests", "CinemaBookingWebTests\CinemaBookingWebTests.csproj", "{F848CAB3-1582-458F-AF99-D3CED7E0268A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaBookingTests", "CinemaBookingWebTests\CinemaBookingTests.csproj", "{F848CAB3-1582-458F-AF99-D3CED7E0268A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

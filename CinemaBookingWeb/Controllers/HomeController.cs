@@ -1,30 +1,19 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using CinemaBookingDto;
-using CinemaBookingWeb.ViewModel;
+﻿using System.Web.Mvc;
+using CinemaBookingWeb.Services;
 
 namespace CinemaBookingWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepository _repo;
-
-        public HomeController(IRepository repo)
+        private readonly IPlayBillService _playbillService;
+        public HomeController(IPlayBillService srv)
         {
-            _repo = repo;
+            _playbillService = srv;
         }
 
         public ActionResult Index()
         {
-            var playBill = _repo.GetPlayBill().Where(x => x.DateMovie >= DateTime.Now);
-            var model = new PlayBillViewModel(playBill);
-            model.Posters.ForEach(poster =>
-            {
-                poster.Movie = _repo.FindMovieById(poster.MovieId);
-                poster.Hall = _repo.FindHallById(poster.HallId);
-            });
-
+            var model = _playbillService.GetPlayBillViewModel();
             return View(model);
         }
     }

@@ -8,9 +8,15 @@ using System.Reflection;
 
 namespace CinemaBookingData
 {
+    
     public class JsonRepository : IRepository
     {
-        private readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine((new Uri(Assembly.GetExecutingAssembly().CodeBase)).AbsolutePath, @"..\..\"));
+        public JsonRepository(RepoConfig config)
+        {
+            path = config.path;
+        }
+
+        private readonly string path;// = System.IO.Path.GetFullPath(System.IO.Path.Combine((new Uri(Assembly.GetExecutingAssembly().CodeBase)).AbsolutePath, @"..\..\"));
 
         public Booking FindBookingById(int id)
         {

@@ -3,6 +3,14 @@ using System.Collections.Generic;
 
 namespace CinemaBookingDto
 {
+    // Common DI container registration module interface
+
+    public interface IContainerRegistrationModule<T>
+    {
+        void Register(T container);
+    }
+
+
     public interface IRepository//<T> where T : IEntity
     {
         IEnumerable<Booking> GetAllBookings();
