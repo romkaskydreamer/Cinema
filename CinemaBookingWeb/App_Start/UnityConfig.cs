@@ -15,12 +15,11 @@ namespace CinemaBookingWeb
         {
             var container = new UnityContainer();
 
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
             string jsonFilesPath = AppDomain.CurrentDomain.BaseDirectory;
+
             var conf = App_Start.RepoConfigFactory.CreateFrom(jsonFilesPath);
                     
-            container.RegisterInstance(typeof(CinemaBookingDto.Models.RepoConfig), conf) ;
+            container.RegisterInstance(typeof(RepoConfig), conf) ;
 
             container.RegisterType<IRepository, JsonRepository>();
 

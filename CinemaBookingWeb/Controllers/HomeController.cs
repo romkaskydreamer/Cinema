@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using CinemaBookingWeb.Services;
+using CinemaBookingWeb.ViewModel;
 
 namespace CinemaBookingWeb.Controllers
 {
@@ -13,8 +14,10 @@ namespace CinemaBookingWeb.Controllers
 
         public ActionResult Index()
         {
-            var model = _playbillService.GetPlayBillViewModel();
-            return View(model);
+            var posters = _playbillService.GetTodayPlayBill();
+            var playBillViewModel = new PlayBillViewModel { Posters = posters };
+
+            return View("Index", playBillViewModel);
         }
     }
 }

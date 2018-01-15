@@ -2,9 +2,9 @@
 {
     public class RepoConfigFactory
     {
-        public static CinemaBookingDto.Models.RepoConfig CreateFrom(string path)
+        public static CinemaBookingDto.RepoConfig CreateFrom(string path)
         {
-            return new CinemaBookingDto.Models.RepoConfig { path = path };
+            return new CinemaBookingDto.RepoConfig { path = path };
         }
     }
 }

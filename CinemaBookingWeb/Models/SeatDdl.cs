@@ -9,7 +9,6 @@ namespace CinemaBookingWeb.Models
         public int RowNum { get; set; }
         public int SeatNum { get; set; }
         public double Price { get; set; }
-        public string GetSummary() { return $"Row: {RowNum}, Seat: {SeatNum}, Price: {Price}"; }
         public string Summary { get { return $"Row: {RowNum}, Seat: {SeatNum}, Price: {Price}"; } set { Summary = value; } }
 
         public SeatDdl(Seat seat)

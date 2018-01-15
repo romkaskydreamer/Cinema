@@ -179,7 +179,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Poster.cs" />
+    <Compile Include="Models\Dto\BookingDto.cs" />
+    <Compile Include="Models\Dto\HallDto.cs" />
+    <Compile Include="Models\Dto\MovieDto.cs" />
+    <Compile Include="Models\Dto\PlayBillDto.cs" />
+    <Compile Include="Models\Dto\PriceCategoryDto.cs" />
+    <Compile Include="Models\Dto\SeatDto.cs" />
     <Compile Include="Models\SeatDdl.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,6 @@
 ﻿using CinemaBookingWeb.Services;
 using CinemaBookingWeb.ViewModel;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -55,8 +56,23 @@ namespace CinemaBookingWeb.Controllers
 
         public ActionResult Admin()
         {
-            var bookings = _bookingService.GetAllBookings();
-            return View("Admin", bookings);
+            var bookings = _bookingService.GetAllBookings().ToList();
+            var list = new BookingsListViewModel();
+            foreach (var b in bookings)
+            {
+                var bd = new BookingDetailsViewModel
+                {
+                    ClientEmail = b.ClientEmail,
+                    ClientName = b.ClientName,
+                    DateCreated = b.DateCreated,
+                    Id = b.Id,
+                    MovieName = b.PlayBill.Movie.Name,
+                    Hall = b.PlayBill.Hall.Name,
+                    SeatSummary = $"Row: {b.Seat.RowNum}, Seat: {b.Seat.SeatNum}"
+                };
+                list.Bookings.Add(bd);
+            }
+            return View("Admin", list);
         }
 
         public ActionResult Delete(int id)

@@ -4,6 +4,17 @@ namespace CinemaBookingDto.Models
 {
     public class Booking : IEntity
     {
+        public Booking() { }
+        public Booking(Booking booking)
+        {
+            Id = booking.Id;
+            PlayBillId = booking.PlayBillId;
+            SeatId = booking.SeatId;
+            ClientEmail = booking.ClientEmail;
+            ClientName = booking.ClientName;
+            DateCreated = booking.DateCreated;
+        }
+
         public int Id { get; set; }
 
         public int PlayBillId { get; set; }

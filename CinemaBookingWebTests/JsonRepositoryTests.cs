@@ -13,7 +13,7 @@ namespace CinemaBookingWebTests
 
         public JsonRepositoryTests()
         {
-            repo = new CinemaBookingData.JsonRepository(new CinemaBookingDto.Models.RepoConfig { path = pathToTestJsonFiles });
+            repo = new CinemaBookingData.JsonRepository(new RepoConfig { path = pathToTestJsonFiles });
             helper = new RepositoryHelper(repo);
         }
 

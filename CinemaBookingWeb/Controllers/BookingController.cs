@@ -1,4 +1,5 @@
-﻿using CinemaBookingWeb.Services;
+﻿using CinemaBookingWeb.Models.Dto;
+using CinemaBookingWeb.Services;
 using CinemaBookingWeb.ViewModel;
 using System;
 using System.Linq;
@@ -16,26 +17,36 @@ namespace CinemaBookingWeb.Controllers
 
         public ActionResult BookingForm(int playBillId)
         {
-            var model = _bookingService.GetBookingFormVm(playBillId);
-            return View(model);
+            var poster = _bookingService.GetBookingDtoForm(playBillId);
+            var model = new BookingListViewModel { Poster = poster, FreeSeats = _bookingService.GetFreeSeatsForPlayBill(playBillId).ToList() };
+
+            return View("BookingForm", model);
         }
 
         [HttpPost]
-        public ActionResult BookingConfirm(BookingFormViewModel model)
+        public ActionResult BookingConfirm(BookingListViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                var m = _bookingService.GetBookingFormVm(model.Poster.Id);
-                m.ClientEmail = model.ClientEmail;
-                m.ClientName = model.ClientName;
-                m.SeatId = model.SeatId;
-                var errors = ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).Select(r => r[0].ErrorMessage).ToList();
-                m.Errors = String.Join("\n", errors);
-                return View("BookingForm", m);
+                //var errors = ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).Select(r => r[0].ErrorMessage).ToList();
+                //model.Errors = String.Join("\n", errors);
+                return View("BookingForm", model);
             }
+            var booking = new BookingDto
+            {
+                ClientEmail = model.ClientEmail,
+                ClientName = model.ClientName,
+                DateCreated = DateTime.Now,
+                SeatId = model.SeatId,
+                PlayBillId = model.Poster.Id,
+                Id = 0
+            };
+            bool isTicketBusy = _bookingService.IsBookingBusy(booking);
+            if(isTicketBusy) return View("_Result", new ResultViewModel("Sorry. Ticket was already booked."));
+            bool success =  _bookingService.AddBooking(booking);
+            string message = success ? "You successfully boocked a ticket" : "Server error occured :(";
 
-            var resultVm = _bookingService.AddBooking(model);
-            return View("_Result", resultVm);
+            return View("_Result", new ResultViewModel(message));
         }
 
     }

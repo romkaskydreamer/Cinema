@@ -1,32 +1,25 @@
 ﻿using CinemaBookingDto;
-using CinemaBookingWeb.ViewModel;
+using CinemaBookingWeb.Models.Dto;
 
 namespace CinemaBookingWeb.Services
 {
     public interface IMovieService
     {
-        MovieViewModel GetMovieViewModel(int id);
+        MovieDto GetMovieById(int id);
     }
 
     public class MovieService : IMovieService
     {
         private readonly IRepository _repo;
-
         public MovieService(IRepository repo)
         {
             _repo = repo;
         }
 
-        public MovieViewModel GetMovieViewModel(int id)
+        public MovieDto GetMovieById(int id)
         {
             var movie = _repo.FindMovieById(id);
-            var model = new MovieViewModel
-            {
-                Description = movie.Description,
-                Name = movie.Name,
-                Img = movie.Img
-            };
-            return model;
+            return new MovieDto(movie);
         }
 
     }

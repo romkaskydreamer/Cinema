@@ -4,6 +4,17 @@ namespace CinemaBookingDto.Models
 {
     public class PlayBill : IEntity
     {
+        public PlayBill(PlayBill pb)
+        {
+            Id = pb.Id;
+            MovieId = pb.MovieId;
+            HallId = pb.HallId;
+            DateMovie = pb.DateMovie;
+            BasePrice = pb.BasePrice;
+        }
+
+        public PlayBill()  { }
+
         public int Id { get; set; }
         public int MovieId { get; set; }
         public int HallId { get; set; }

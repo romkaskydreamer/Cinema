@@ -66,8 +66,18 @@
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminControllerTest.cs" />
+    <Compile Include="Controllers\BookingControllerTest.cs" />
+    <Compile Include="Controllers\MovieControllerTest.cs" />
+    <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="JsonRepositoryTests.cs" />
     <Compile Include="RepositoryHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +93,10 @@
     <ProjectReference Include="..\CinemaBookingRepo\CinemaBookingRepo.csproj">
       <Project>{72d5e4ce-4e73-4492-a4b0-31f44e086685}</Project>
       <Name>CinemaBookingRepo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CinemaBookingWeb\CinemaBookingWeb.csproj">
+      <Project>{0a9fc640-18cf-4e79-8595-0a32993c5f93}</Project>
+      <Name>CinemaBookingWeb</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -2,6 +2,17 @@
 {
     public class Seat : IEntity
     {
+        public Seat(Seat seat)
+        {
+            Id = seat.Id;
+            HallId = seat.HallId;
+            RowNum = seat.RowNum;
+            SeatNum = seat.SeatNum;
+            PriceCategoryId = seat.PriceCategoryId;
+        }
+
+        public Seat() { }
+
         public int Id { get; set; }
         public int HallId { get; set; }
         public int RowNum { get; set; }

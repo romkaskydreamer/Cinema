@@ -1,4 +1,5 @@
 ﻿using CinemaBookingWeb.Services;
+using CinemaBookingWeb.ViewModel;
 using System.Web.Mvc;
 
 namespace CinemaBookingWeb.Controllers
@@ -18,9 +19,14 @@ namespace CinemaBookingWeb.Controllers
 
         public ActionResult Movie(int id)
         {
-            var model = _movieService.GetMovieViewModel(id);
-
-            return View(model);
+            var movie = _movieService.GetMovieById(id);
+            var model = new MovieViewModel
+            {
+                Description = movie.Description,
+                Name = movie.Name,
+                Img = movie.Img
+            };
+            return View("Movie", model);
         }
 
     }

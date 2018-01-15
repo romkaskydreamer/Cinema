@@ -5,6 +5,7 @@ namespace CinemaBookingWeb.ViewModel
     public class BookingsListViewModel
     {
         public List<BookingDetailsViewModel> Bookings { get; set; }
+        public BookingsListViewModel() { Bookings = new List<BookingDetailsViewModel>(); }
     }
     public class BookingDetailsViewModel
     {

@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CinemaBookingWeb.Models;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using CinemaBookingWeb.Models.Dto;
 
 namespace CinemaBookingWeb.ViewModel
 {
-    public class BookingFormViewModel
+    public class BookingListViewModel
     {
-        public Poster Poster { get; set; }
+        public PlayBillDto Poster { get; set; }
 
         [Required]
         [DisplayName("Please choose your seat")]
@@ -25,13 +25,11 @@ namespace CinemaBookingWeb.ViewModel
         [EmailAddress]
         public string ClientEmail { get; set; }
 
-        public DateTime DateCreated { get; set; }
-
         public List<SeatDdl> FreeSeats { get; set; }
 
         public string Errors { get; set; }
 
-        public BookingFormViewModel()
+        public BookingListViewModel()
         {
             FreeSeats = new List<SeatDdl>();
         }

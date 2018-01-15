@@ -1,4 +1,4 @@
-﻿namespace CinemaBookingDto.Models
+﻿namespace CinemaBookingDto
 {
     public class RepoConfig
     {
