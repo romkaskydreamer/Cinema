@@ -18,13 +18,13 @@ namespace CinemaBookingWeb.Controllers
         public ActionResult BookingForm(int playBillId)
         {
             var poster = _bookingService.GetBookingDtoForm(playBillId);
-            var model = new BookingListViewModel { Poster = poster, FreeSeats = _bookingService.GetFreeSeatsForPlayBill(playBillId).ToList() };
+            var model = new BookingFormViewModel { Poster = poster, FreeSeats = _bookingService.GetFreeSeatsForPlayBill(playBillId).ToList() };
 
             return View("BookingForm", model);
         }
 
         [HttpPost]
-        public ActionResult BookingConfirm(BookingListViewModel model)
+        public ActionResult BookingConfirm(BookingFormViewModel model)
         {
             if (!ModelState.IsValid)
             {

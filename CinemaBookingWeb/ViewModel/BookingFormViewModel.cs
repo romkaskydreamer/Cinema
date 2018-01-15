@@ -6,7 +6,7 @@ using CinemaBookingWeb.Models.Dto;
 
 namespace CinemaBookingWeb.ViewModel
 {
-    public class BookingListViewModel
+    public class BookingFormViewModel
     {
         public PlayBillDto Poster { get; set; }
 
@@ -29,7 +29,7 @@ namespace CinemaBookingWeb.ViewModel
 
         public string Errors { get; set; }
 
-        public BookingListViewModel()
+        public BookingFormViewModel()
         {
             FreeSeats = new List<SeatDdl>();
         }

@@ -25,7 +25,7 @@ namespace CinemaBookingWebTests.Controllers
         {
             var controller = new BookingController(srv);
             var result = controller.BookingForm(1) as ViewResult;
-            var bf = (BookingListViewModel)result.ViewData.Model;
+            var bf = (BookingFormViewModel)result.ViewData.Model;
             Assert.AreEqual("BookingForm", result.ViewName);
             Assert.IsNotNull(bf);
             Assert.IsNotNull(bf.Poster);
